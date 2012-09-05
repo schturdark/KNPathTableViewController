@@ -36,6 +36,7 @@
     __tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:style];
     __tableView.delegate = self;
     __tableView.dataSource = self;
+    __tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:__tableView];
 
     // The panel
@@ -64,6 +65,10 @@
   [super viewWillAppear:animated];
   // Fix table size
   __tableView.frame = self.view.bounds;
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    __tableView.frame = self.view.bounds;
 }
 
 #pragma mark - Meant to be override
